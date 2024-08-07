@@ -33,6 +33,29 @@ class FileStorage:
                     new_dict[key] = value
             return new_dict
         return self.__objects
+    
+    def get(self, cls, id):
+        """method to retrive obj depend on id and class name"""
+        if cls not in classes.values():
+            return None
+        else:
+            all_clas = self.all()
+            for obj in all_clas:
+                if obj.id == id:
+                    return obj
+    
+    def count(self, cls=None):
+        """return the number of objects which 
+        belong to specific class"""
+        c = 0
+        if cls:
+            for obj in self.__objects:
+                if isinstance(self.__objects[obj], cls):
+                    c += 1
+        else:
+            c = len(self.__objects)
+        return c 
+
 
     def new(self, obj):
         """sets in __objects the obj with key <obj class name>.id"""
