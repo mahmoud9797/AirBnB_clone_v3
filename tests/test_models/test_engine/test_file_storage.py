@@ -114,7 +114,7 @@ class TestFileStorage(unittest.TestCase):
             js = f.read()
         self.assertEqual(json.loads(string), json.loads(js))
 
-        def test_filestorage_get(self):
+    def test_filestorage_get(self):
         '''
             Testing Get method
         '''
